@@ -2,20 +2,41 @@ import React from 'react';
 import '../styles/CardInput.css';
 
 const CardInput = ({ handleCardClick }) => {
-  const cardValues = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+  const cardValues = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'];
+
+  const getCardImage = (value) => {
+    return `/cards/${value}.png`;
+  };
+
+  const cards = cardValues.map((value) => ({
+    value,
+    image: getCardImage(value),
+  }));
+
+  const rows = [
+    cards.slice(0, 4),
+    cards.slice(4, 9),
+    cards.slice(9)
+  ];
 
   return (
     <div>
       <h3>Enter cards:</h3>
-      {cardValues.map((value) => (
-        <button
-          key={value}
-          className="card-button"
-          onClick={() => handleCardClick(value)}
-        >
-          {value}
-        </button>
-      ))}
+      <div className="card-grid">
+        {rows.map((row, rowIndex) => (
+          <div key={rowIndex} className="card-row">
+            {row.map((card) => (
+              <img
+                key={card.value}
+                src={card.image}
+                alt={card.value}
+                className="card-button"
+                onClick={() => handleCardClick(card.value)}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

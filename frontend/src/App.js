@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
+import logo from './logo512.png';
 import CardCounter from './CardCounter';
 import './App.css';
 
@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Blackjack Card Counter</h1>
+        <h1>Card Countin'</h1>
         <p>Backend server message: {message}</p>
         <CardCounter />
         <p>
