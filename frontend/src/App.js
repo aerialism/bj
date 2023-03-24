@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
+import CardCounter from './CardCounter';
 import './App.css';
 
 function App() {
@@ -20,10 +21,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1>Blackjack Card Counter</h1>
+        <p>Backend server message: {message}</p>
+        <CardCounter />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>Backend server message: {message}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -38,4 +41,3 @@ function App() {
 }
 
 export default App;
-
