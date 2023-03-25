@@ -7,7 +7,7 @@ const BetInput = ({ baseUnit, setBaseUnit }) => {
 
   return (
     <div>
-      <h3>Initial Bet</h3>
+      <p>Initial Bet:</p>
       <input
         type="number"
         min="1"

@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the Blackjack Card Counter API');
+  res.send('Set your parameters');
 });
 
 app.listen(PORT, () => {

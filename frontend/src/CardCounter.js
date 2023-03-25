@@ -7,7 +7,7 @@ import ResetButton from './components/ResetButton';
 import BetInput from './components/BetInput';
 import { getCardValue, getCountingSystemFunction } from './countingSystems';
 
-const CardCounter = () => {
+const CardCounter = ({ settingsPage }) => {
   const [countingSystem, setCountingSystem] = useState(localStorage.getItem('countingSystem') || 'Hi-Lo');
   const [numberOfDecks, setNumberOfDecks] = useState(parseInt(localStorage.getItem('numberOfDecks')) || 1);
   const [runningCount, setRunningCount] = useState(0);
@@ -46,16 +46,24 @@ const CardCounter = () => {
 
   return (
     <div>
-      <h2>Card Counter</h2>
-      <CountingSystemSelector
-        countingSystem={countingSystem}
-        setCountingSystem={setCountingSystem}
-      />
-      <DeckInput numberOfDecks={numberOfDecks} setNumberOfDecks={setNumberOfDecks} />
-      <BetInput baseUnit={baseUnit} setBaseUnit={setBaseUnit} />
-      <CountDisplay runningCount={runningCount} trueCount={trueCount} betSize={betSize} />
-      <CardInput handleCardClick={handleCardClick} />
-      <ResetButton handleReset={handleReset} />
+      
+      {settingsPage && (
+        <>
+          <CountingSystemSelector
+            countingSystem={countingSystem}
+            setCountingSystem={setCountingSystem}
+          />
+          <DeckInput numberOfDecks={numberOfDecks} setNumberOfDecks={setNumberOfDecks} />
+          <BetInput baseUnit={baseUnit} setBaseUnit={setBaseUnit} />
+        </>
+      )}
+      {!settingsPage && (
+        <>
+          <CountDisplay runningCount={runningCount} trueCount={trueCount} betSize={betSize} />
+          <CardInput handleCardClick={handleCardClick} />
+          <ResetButton handleReset={handleReset} />
+        </>
+      )}
     </div>
   );
 };

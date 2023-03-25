@@ -21,7 +21,7 @@ const CardInput = ({ handleCardClick }) => {
 
   return (
     <div>
-      <h3>Enter cards:</h3>
+      <p><u>Cards dealt:</u></p>
       <div className="card-grid">
         {rows.map((row, rowIndex) => (
           <div key={rowIndex} className="card-row">
